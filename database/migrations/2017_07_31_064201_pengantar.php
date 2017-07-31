@@ -14,7 +14,12 @@ class Pengantar extends Migration
     public function up()
     {
         Schema::table('pengantar', function (Blueprint $table) {
-            //
+            $table->increments('id')->unique();
+            $table->string('nama');
+            $table->string('nomor_telepon');
+            $table->text('alamat');
+            $table->string('ktp');
+            $table->string('jenis_kelamin');
         });
     }
 
