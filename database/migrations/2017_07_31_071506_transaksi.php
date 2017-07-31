@@ -14,7 +14,11 @@ class Transaksi extends Migration
     public function up()
     {
         Schema::table('transaksi', function (Blueprint $table) {
-            //
+            $table->increments('id')->unique();
+            $table->text('tanggal');
+            $table->string('status');
+            $table->int('biaya');
+
         });
     }
 
