@@ -14,7 +14,11 @@ class Pengirim extends Migration
     public function up()
     {
         Schema::table('pengirim', function (Blueprint $table) {
-            //
+              $table->string('nama');
+              $table->string('nomor_telepon');
+               $table->string('alamat');
+                $table->increments('id')->unique();
+                $table->increments('ktp')->unique();
         });
     }
 
