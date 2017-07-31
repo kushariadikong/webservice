@@ -14,7 +14,10 @@ class ItemDetail extends Migration
     public function up()
     {
         Schema::table('item', function (Blueprint $table) {
-            //
+             $table->string('nama_item');
+            $table->increments('id_peritem')->unique();
+            $table->string('item_detail');
+            $table->integer('berat_perbarang');
         });
     }
 
