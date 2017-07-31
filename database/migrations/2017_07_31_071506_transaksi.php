@@ -17,7 +17,7 @@ class Transaksi extends Migration
             $table->increments('id')->unique();
             $table->text('tanggal');
             $table->string('status');
-            $table->int('biaya');
+            $table->integer('biaya');
 
         });
     }
