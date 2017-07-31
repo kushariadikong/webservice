@@ -13,10 +13,12 @@ class Schedule extends Migration
      */
     public function up()
     {
+        Schema::table('pengantar', function (Blueprint $table){
         $table->increments('id')->unique();
         $table->string('item_detail');
         $table->text('lokasi');
         $table->integer('id_transaksi')->unique();
+        });
     }
 
     /**
