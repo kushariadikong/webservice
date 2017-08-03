@@ -14,11 +14,9 @@ class Transaksi extends Migration
     public function up()
     {
         Schema::table('transaksi', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            $table->increments('id')->unique(); // no resi
             $table->text('tanggal');
             $table->string('status');
-            $table->integer('biaya');
-
         });
     }
 
@@ -29,8 +27,6 @@ class Transaksi extends Migration
      */
     public function down()
     {
-        Schema::table('transaksi', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('transaksi');
     }
 }

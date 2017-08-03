@@ -13,12 +13,12 @@ class Pengirim extends Migration
      */
     public function up()
     {
-        Schema::table('pengirim', function (Blueprint $table) {
+        Schema::table('kurir', function (Blueprint $table) {
+              $table->increments('id')->unique();
               $table->string('nama');
               $table->string('nomor_telepon');
-               $table->string('alamat');
-                $table->increments('id')->unique();
-                $table->increments('ktp')->unique();
+              $table->string('alamat');
+              $table->integer('ktp')->unique();
         });
     }
 
@@ -29,8 +29,6 @@ class Pengirim extends Migration
      */
     public function down()
     {
-        Schema::table('pengirim', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('kurir');
     }
 }

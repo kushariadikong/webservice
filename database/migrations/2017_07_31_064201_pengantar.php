@@ -30,8 +30,6 @@ class Pengantar extends Migration
      */
     public function down()
     {
-        Schema::table('pengantar', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('pengantar');
     }
 }

@@ -13,16 +13,15 @@ class Item extends Migration
      */
     public function up()
     {
-               Schema::create('item', function (Blueprint $table) {
-            $table->increments('no_resi')->unique();
-            $table->string('nama_item');
+        Schema::create('item', function (Blueprint $table) {
+            $table->int('no_resi');
+            $table->increments('id_item');
             $table->string('nama_penerima');
-            $table->string('nama_pengirim');
-            $table->string('alamat_pengirim');
             $table->text('alamat_penerima');
             $table->string('nomor_telepon_penerima');
-            $table->string('nomor_telepon_pengantar');
+            $table->int('id_pengantar')->unsigned;
             $table->integer('berat');
+            $table->integer('biaya');
     }
 
     /**
@@ -32,6 +31,6 @@ class Item extends Migration
      */
     public function down()
     {
-        //
+         Schema::dropIfExists('item');
     }
 }

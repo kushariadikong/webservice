@@ -13,11 +13,11 @@ class ItemDetail extends Migration
      */
     public function up()
     {
-        Schema::table('item', function (Blueprint $table) {
-             $table->string('nama_item');
-            $table->increments('id_peritem')->unique();
+        Schema::table('item_detail', function (Blueprint $table) {
+            $table->string('nama_item');
+            $table->increments('id_item')->unique();
             $table->string('item_detail');
-            $table->integer('berat_perbarang');
+            $table->integer('berat');
         });
     }
 
@@ -28,8 +28,6 @@ class ItemDetail extends Migration
      */
     public function down()
     {
-        Schema::table('item', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('item_detail');
     }
 }
