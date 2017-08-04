@@ -39,10 +39,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        $user = new User();
-        $user = $request->input('name');
-        $user = $request->input('password');
-        $user->save();
+        if(!in_array(unserialize($user->roles), 'Member')){
+            //member mau pengiriman
+            $coba = Auth::user();
+            return response()->json($coba->toArray());
+        }else{
+            //create new user for admin
+          $user = new User();
+          $user->name = $request->input('name');
+          $user->password = $request->input('password');
+          $user->roles = $request->input('roles');
+          $user->save();
+          return response()->json("Success : Data added",200);
+        }
+
     }
 
     /**

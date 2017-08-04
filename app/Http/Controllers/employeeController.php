@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ScheduleController extends Controller
+class employeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,18 +13,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //return schedule for account, return all if admin
-        if(!in_array(unserialize($user->roles), 'Member')){
-            //tampilkan hanya punya member tersebut
-            $coba = Auth::User()->id;
-            $data = Schedule::find($coba);
-            return response()->json($data->toArray());
-        }
-        else if(!in_array(unserialize($user->roles), 'Admin'))
-        {
-            $data = Schedule::paginate();
-            return response()->json($data->toArray());
-        }
+        //
     }
 
     /**
@@ -34,7 +23,11 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+          $kurir = new Kurir();
+          $kurir->nama = $request->input('nama');
+          $kurir->nomor_telepon = $request->input('nomor_telepon');
+          $kurir->alamat = $request->input('roles');
+          $user->save();
     }
 
     /**
@@ -45,10 +38,7 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $schedule = new Schedule();
-        $schedule->item_detail = $request->input('item_detail');
-        $schedule->lokasi = $request->input('lokasi');
-        $schedule->save();
+        //
     }
 
     /**
@@ -59,9 +49,7 @@ class ScheduleController extends Controller
      */
     public function show($id)
     {
-        $data = Schedule::find($id);
-        return response()->json($data->toArray());
-        
+        //
     }
 
     /**
@@ -84,10 +72,7 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $schedule = Schedule::find($id);
-        $schedule->no_resi = $request->input('no_resi');
-        $scheudle->id_kurir = $request->input('id_kurir');
-        $schedule->save();
+        //
     }
 
     /**
