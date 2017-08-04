@@ -8,6 +8,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    /**
+    *   @SWG\Definition(
+    *       definition = "User",
+    *       @SWG\Property(
+    *           property = "email",
+    *           type = "string",
+    *       ),
+    *       @SWG\Property(
+    *           property = "password",
+    *           type = "string",
+    *       ),
+    *       @SWG\Property(
+    *           property = "roles",
+    *           type = "string",
+    *       ), 
+    *     )     
+    */
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-         'email', 'password',
+         'email', 'password','roles',
     ];
 
     /**
