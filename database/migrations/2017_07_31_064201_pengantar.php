@@ -12,13 +12,14 @@ class Pengantar extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::table('pengantar', function (Blueprint $table) {
+    {   
+        //yang ke sana
+        Schema::table('kurir', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->string('nama');
             $table->string('nomor_telepon');
             $table->text('alamat');
-            $table->string('ktp');
+            $table->integer('ktp')->unique();
             $table->string('jenis_kelamin');
         });
     }
@@ -30,6 +31,6 @@ class Pengantar extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengantar');
+        Schema::dropIfExists('kurir');
     }
 }

@@ -13,7 +13,7 @@ class Pengirim extends Migration
      */
     public function up()
     {
-        Schema::table('kurir', function (Blueprint $table) {
+        Schema::table('pengirim', function (Blueprint $table) {
               $table->increments('id')->unique();
               $table->string('nama');
               $table->string('nomor_telepon');
@@ -29,6 +29,6 @@ class Pengirim extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kurir');
+        Schema::dropIfExists('pengirim');
     }
 }

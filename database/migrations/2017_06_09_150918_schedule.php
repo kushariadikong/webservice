@@ -17,8 +17,8 @@ class Schedule extends Migration
         $table->increments('id')->unique();
         $table->string('item_detail');
         $table->text('lokasi');
-        $table->integer('no_resi');
-        $table->integer('id_kurir');
+        $table->integer('no_resi')->unsigned();
+        $table->integer('id_kurir')->unsigned();
         });
     }
 

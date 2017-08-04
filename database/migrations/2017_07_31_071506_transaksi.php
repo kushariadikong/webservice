@@ -15,8 +15,9 @@ class Transaksi extends Migration
     {
         Schema::table('transaksi', function (Blueprint $table) {
             $table->increments('id')->unique(); // no resi
-            $table->text('tanggal');
             $table->string('status');
+            $table->int('id_member');
+            $table->timestamps();
         });
     }
 
