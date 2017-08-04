@@ -13,12 +13,14 @@ class Pengirim extends Migration
      */
     public function up()
     {
-        Schema::table('pengirim', function (Blueprint $table) {
+      //pengirim = user
+        Schema::create('pengirim', function (Blueprint $table) {
               $table->increments('id')->unique();
               $table->string('nama');
               $table->string('nomor_telepon');
               $table->string('alamat');
               $table->integer('ktp')->unique();
+              $table->integer('id_users');
         });
     }
 

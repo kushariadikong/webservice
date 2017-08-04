@@ -14,16 +14,16 @@ class Item extends Migration
     public function up()
     {
         Schema::create('item', function (Blueprint $table) {
-            $table->int('no_resi');
+            $table->integer('no_resi');
             $table->increments('id_item');
             $table->string('nama_penerima');
             $table->text('alamat_penerima');
             $table->string('nomor_telepon_penerima');
-            $table->int('id_pengantar')->unsigned;
+            $table->integer('id_pengantar')->unsigned();
             $table->integer('berat');
             $table->integer('biaya');
+        });
     }
-
     /**
      * Reverse the migrations.
      *

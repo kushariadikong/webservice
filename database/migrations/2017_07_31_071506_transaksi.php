@@ -13,10 +13,10 @@ class Transaksi extends Migration
      */
     public function up()
     {
-        Schema::table('transaksi', function (Blueprint $table) {
+        Schema::create('transaksi', function (Blueprint $table) {
             $table->increments('id')->unique(); // no resi
             $table->string('status');
-            $table->int('id_member');
+            $table->integer('id_member')->unsigned();
             $table->timestamps();
         });
     }

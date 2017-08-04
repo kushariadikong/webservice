@@ -14,7 +14,7 @@ class Pengantar extends Migration
     public function up()
     {   
         //yang ke sana
-        Schema::table('kurir', function (Blueprint $table) {
+        Schema::create('kurir', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->string('nama');
             $table->string('nomor_telepon');

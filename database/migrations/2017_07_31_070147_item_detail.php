@@ -13,7 +13,7 @@ class ItemDetail extends Migration
      */
     public function up()
     {
-        Schema::table('item_detail', function (Blueprint $table) {
+        Schema::create('item_detail', function (Blueprint $table) {
             $table->string('nama_item');
             $table->increments('id_item')->unique();
             $table->string('item_detail');

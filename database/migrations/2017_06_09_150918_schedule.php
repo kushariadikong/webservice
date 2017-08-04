@@ -13,7 +13,7 @@ class Schedule extends Migration
      */
     public function up()
     {
-        Schema::table('schedule', function (Blueprint $table){
+        Schema::create('schedule', function (Blueprint $table){
         $table->increments('id')->unique();
         $table->string('item_detail');
         $table->text('lokasi');
