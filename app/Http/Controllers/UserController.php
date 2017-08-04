@@ -50,6 +50,17 @@ class UserController extends Controller
           $user->password = $request->input('password');
           $user->roles = $request->input('roles');
           $user->save();
+          $id = User::where('id',$user->name);
+          //ambil data nya
+          if($request->input('roles') == 'Member'){
+            $pengirim = new Pengirim();
+            $pengirim->nama = $request->input('name');
+            $pengirim->nomor_telepon = $request->input('nomor_telepon');
+            $pengirim->alamat = $request->input('alamat');
+            $pengirim->ktp = $request->input('ktp');
+            $pengirim->id_users = $id;
+            $pengirim->save();
+          }
           return response()->json("Success : Data added",200);
         }
 

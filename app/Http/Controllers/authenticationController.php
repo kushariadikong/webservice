@@ -1,4 +1,4 @@
- <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -6,6 +6,67 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Http\Request;
 
+/**
+*   @SWG\Post(
+*       path="/api/user/login_check",
+*       summary="Authenticate User.",
+*       produces={"application/json"},
+*       consumes={"application/json"},
+*       tags={"login"},
+*       @SWG\Response(
+*           response=200,
+*           description="User token.",
+*           @SWG\Property(
+*               property="token",
+*               type="string"
+*           )
+*       ),
+*       @SWG\Response(
+*           response=401,
+*           description="Unauthorized action."
+*       ),
+*       @SWG\Parameter(
+*           name="body",
+*           in="body",
+*           required=true,
+*           type="string",
+*           @SWG\Schema(
+*               type="string"
+*           )
+*       )
+*)
+*/
+
+/**
+*   @SWG\Post(
+*       path="/api/admin/login_check",
+*       summary="Authenticate User.",
+*       produces={"application/json"},
+*       consumes={"application/json"},
+*       tags={"login"},
+*       @SWG\Response(
+*           response=200,
+*           description="User token.",
+*           @SWG\Property(
+*               property="token",
+*               type="string"
+*           )
+*       ),
+*       @SWG\Response(
+*           response=401,
+*           description="Unauthorized action."
+*       ),
+*       @SWG\Parameter(
+*           name="body",
+*           in="body",
+*           required=true,
+*           type="string",
+*           @SWG\Schema(
+*               type="string"
+*           )
+*       )
+*)
+*/
 class AuthenticationController extends Controller
 {
     public function authenticate(Request $request)
@@ -28,4 +89,4 @@ class AuthenticationController extends Controller
     }
 }
 
-}
+

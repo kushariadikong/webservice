@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class ItemController extends Controller
 {
@@ -11,6 +12,33 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+  /**
+    * @SWG\Get(
+    *   path="/api/admin/item",
+    *   summary="Retrieve item resources. ",
+    *   produces={"application/json"},
+    *   tags={"Admin Item"},
+    *   @SWG\Response(
+    *       response=200,
+    *       description= "Item collection.",
+    *       @SWG\Schema(
+    *           type="array",
+    *           @SWG\Items(ref="#/definitions/item")
+    *           )
+    *   ),
+    *   @SWG\Response(
+    *       response=401,
+    *       description="Unauthorized action.",
+    *   ),
+    *   @SWG\Parameter(
+    *       name="Authorization",
+    *       in="header",
+    *       required=true,
+    *       type="string"
+    *   )
+    * )
+    */  
     public function index()
     {
         $bars = Item::paginate();// model name

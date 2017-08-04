@@ -13,7 +13,8 @@ class employeeController extends Controller
      */
     public function index()
     {
-        //
+        $kurir = Kurir::get();
+        return response()->json($kurir->toArray());
     }
 
     /**
@@ -23,11 +24,6 @@ class employeeController extends Controller
      */
     public function create()
     {
-          $kurir = new Kurir();
-          $kurir->nama = $request->input('nama');
-          $kurir->nomor_telepon = $request->input('nomor_telepon');
-          $kurir->alamat = $request->input('roles');
-          $user->save();
     }
 
     /**
@@ -38,7 +34,13 @@ class employeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $kurir = new Kurir();
+          $kurir->nama = $request->input('nama');
+          $kurir->nomor_telepon = $request->input('nomor_telepon');
+          $kurir->alamat = $request->input('alamat');
+          $kurir->ktp = $request->input('ktp');
+          $kurir->jenis_kelamin = $request->input('jenis_kelamin');
+          $kurir->save();
     }
 
     /**
@@ -49,7 +51,8 @@ class employeeController extends Controller
      */
     public function show($id)
     {
-        //
+       $kurir = Kurir::find($id);
+        return response()->json($kurir->toArray());
     }
 
     /**
@@ -72,7 +75,13 @@ class employeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          $kurir = Kurir::find($id);
+          $kurir->nama = $request->input('nama');
+          $kurir->nomor_telepon = $request->input('nomor_telepon');
+          $kurir->alamat = $request->input('alamat');
+          $kurir->ktp = $request->input('ktp');
+          $kurir->jenis_kelamin = $request->input('jenis_kelamin');
+          $kurir->save();
     }
 
     /**
@@ -83,6 +92,8 @@ class employeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kurir = Kurir::find($id);
+        $kurir->delete();
+        return "deleted";
     }
 }

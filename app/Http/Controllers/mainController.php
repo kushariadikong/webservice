@@ -11,9 +11,37 @@ class mainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+ /**
+    * @SWG\Get(
+    *   path="/api/user/transaksi",
+    *   summary="Retrieve transaksi resources. ",
+    *   produces={"application/json"},
+    *   tags={"User Transaction"},
+    *   @SWG\Response(
+    *       response=200,
+    *       description= "Item collection.",
+    *       @SWG\Schema(
+    *           type="array",
+    *           @SWG\Items(ref="#/definitions/transaksi")
+    *           )
+    *   ),
+    *   @SWG\Response(
+    *       response=401,
+    *       description="Unauthorized action.",
+    *   ),
+    *   @SWG\Parameter(
+    *       name="Authorization",
+    *       in="header",
+    *       required=true,
+    *       type="string"
+    *   )
+    * )
+    */  
     public function index()
     {
-        $bars = ::paginate();// model name
+        $bars = transaksi::paginate();// model name
         return response()->json($bars->toArray());
     }
 
